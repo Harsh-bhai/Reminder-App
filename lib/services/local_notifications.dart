@@ -38,4 +38,47 @@ await _flutterLocalNotificationsPlugin.show(
     reminder.id, reminder.title, 'plain body', notificationDetails,
     payload: 'item x');
   }
+
+  // show notification daily
+  //REVIEW - check this one
+  static Future showNotificationDaily(Reminder reminder) async {
+    const AndroidNotificationDetails androidNotificationDetails =
+    AndroidNotificationDetails('your channel id', 'your channel name',
+        channelDescription: 'your channel description',
+        importance: Importance.max,
+        priority: Priority.high,
+        ticker: 'ticker');
+    const NotificationDetails notificationDetails =
+    NotificationDetails(android: androidNotificationDetails);
+    await _flutterLocalNotificationsPlugin.periodicallyShow(
+        reminder.id, reminder.title, 'plain body', RepeatInterval.daily,
+        notificationDetails,
+        payload: 'item x');
+  }
+  // show notification daily
+  // FIXME: not working
+  static Future showPeriodicNotification(Reminder reminder) async {
+    const AndroidNotificationDetails androidNotificationDetails =
+    AndroidNotificationDetails('your channel id', 'your channel name',
+        channelDescription: 'your channel description',
+        importance: Importance.max,
+        priority: Priority.high,
+        ticker: 'ticker');
+    const NotificationDetails notificationDetails =
+    NotificationDetails(android: androidNotificationDetails);
+    await _flutterLocalNotificationsPlugin.periodicallyShow(
+        reminder.id, reminder.title, 'plain body', RepeatInterval.daily,
+        notificationDetails,
+        payload: 'item x');
+  }
+
+  // close a specific channel notification
+  static Future closeNotification(int id) async {
+    await _flutterLocalNotificationsPlugin.cancel(id);
+  }
+
+  // close all the noficitaions
+  static Future closeAllNotifications() async {
+    await _flutterLocalNotificationsPlugin.cancelAll();
+  }
 }
