@@ -25,7 +25,7 @@ class LocalNotifications {
   }
 
   // show a simple notification
-  static Future showSimpleNotification(Reminder reminder) async {
+  static Future showSimpleNotification(ReminderModel reminder) async {
     const AndroidNotificationDetails androidNotificationDetails =
     AndroidNotificationDetails('your channel id', 'your channel name',
         channelDescription: 'your channel description',
@@ -41,7 +41,7 @@ await _flutterLocalNotificationsPlugin.show(
 
   // show notification daily
   //REVIEW - check this one
-  static Future showNotificationDaily(Reminder reminder) async {
+  static Future showNotificationDaily(ReminderModel reminder) async {
     const AndroidNotificationDetails androidNotificationDetails =
     AndroidNotificationDetails('your channel id', 'your channel name',
         channelDescription: 'your channel description',
@@ -57,7 +57,7 @@ await _flutterLocalNotificationsPlugin.show(
   }
   // show notification daily
   // FIXME: not working
-  static Future showPeriodicNotification(Reminder reminder) async {
+  static Future showPeriodicNotification(ReminderModel reminder) async {
     const AndroidNotificationDetails androidNotificationDetails =
     AndroidNotificationDetails('your channel id', 'your channel name',
         channelDescription: 'your channel description',

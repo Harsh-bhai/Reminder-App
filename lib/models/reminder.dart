@@ -1,10 +1,10 @@
-class Reminder {
+class ReminderModel {
   int id;
   String title;
   String time;
   String period; // AM or PM
 
-  Reminder({
+  ReminderModel({
     required this.id,
     required this.title,
     required this.time,
